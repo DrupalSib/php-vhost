@@ -15,6 +15,14 @@
     for ($i=1; $i<$argc; $i++) {
       $option = explode('=', $argv[$i]);
       switch ($option[0]) {
+        case '--help':
+          print '-h / --add-to-hosts: Add to /etc/hosts file;' . PHP_EOL;
+          print '-n / --no-add-to-hosts: Not add to /etc/hosts file;' . PHP_EOL;
+          print '-a / --server-alias: Hostname;' . PHP_EOL;
+          print '-d / --document-root: Document root;' . PHP_EOL;
+          print '--help: Show this help.' . PHP_EOL;
+          exit;
+
         case '-h':
         case '--add-to-hosts':
           $add_to_hosts = TRUE;
