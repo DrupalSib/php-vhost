@@ -115,9 +115,7 @@
     DocumentRoot $document_root
     <Directory $document_root>
       Options Indexes FollowSymLinks MultiViews
-      AllowOverride All
-      Order allow,deny
-      allow from all
+      Require all granted
     </Directory>
 
   #	ErrorLog \${APACHE_LOG_DIR}/$server_alias-error.log;
@@ -126,5 +124,5 @@
   </VirtualHost>
 HOST;
 
-  file_put_contents("/etc/apache2/sites-available/$server_alias", $host_template);
-  system("a2ensite $server_alias && service apache2 restart");
+  file_put_contents("/etc/apache2/sites-available/$server_alias.conf", $host_template);
+  system("a2ensite $server_alias.conf && service apache2 restart");
