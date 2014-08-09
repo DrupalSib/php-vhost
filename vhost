@@ -115,6 +115,7 @@
     DocumentRoot $document_root
     <Directory $document_root>
       Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
       Require all granted
     </Directory>
 
