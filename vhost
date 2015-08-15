@@ -6,13 +6,13 @@
     exit;
   }
 
-  $default_doc_root = '/home/i20/prj';
+  $default_doc_root = '/var/www';
   $server_alias = '';
   $add_to_hosts = NULL;
   $document_root = '';
 
   if ($argc > 1) {
-    for ($i=1; $i<$argc; $i++) {
+    for ($i = 1; $i < $argc; $i++) {
       $option = explode('=', $argv[$i]);
       switch ($option[0]) {
         case '--help':
@@ -114,14 +114,12 @@
 
     DocumentRoot $document_root
     <Directory $document_root>
-      Options Indexes FollowSymLinks MultiViews
+      Options Indexes FollowSymLinks
       AllowOverride All
       Require all granted
     </Directory>
 
-  #	ErrorLog \${APACHE_LOG_DIR}/$server_alias-error.log;
     LogLevel warn
-  #	CustomLog \${APACHE_LOG_DIR}/$server_alias-access.log combined
   </VirtualHost>
 HOST;
 
