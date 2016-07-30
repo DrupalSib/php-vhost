@@ -84,7 +84,8 @@
   }
 
   if (!$document_root) {
-    $project_folder = array_shift(explode('.', $server_alias));
+    $first_elem = explode('.', $server_alias);
+    $project_folder = array_shift($first_elem);
     $default_doc_root = $default_doc_root . '/' . $project_folder;
     print "Enter your document root [$default_doc_root]: ";
     $line = trim(fgets(STDIN));
